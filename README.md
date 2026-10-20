@@ -1,13 +1,17 @@
-# Traductor 
-# Turco ↔ Español
+# Traductor Turco ↔ Español:
+# "Tuco"
 
-Aplicación móvil Android que traduce entre idiomas turco y español.
+Tuco es una aplicación móvil Android sencilla, que traduce entre idiomas turco y español.
 
 ## Integrante
-- Rahyzza Novoa Vasquinzay
+Rahyzza Novoa Vasquinzay
 
 ## Asignatura
 DSY1105 - Desarrollo de Aplicaciones Móviles
+
+
+## Contexto
+Frente a la problemática de la comunicación frente al auge del intercambio comercial entre Turquía y Chile, se implementa una aplicación que permite escribir o dictar por voz, y guarda un historial de traducciones con favoritos.
 
 ## Funcionalidades
 - Registro e inicio de sesión con validaciones visuales por campo
@@ -16,6 +20,13 @@ DSY1105 - Desarrollo de Aplicaciones Móviles
 - Retroalimentación háptica con vibración
 - Historial de traducciones con favoritos y eliminación (persistencia local con Room)
 - Animaciones de retroalimentación en formularios y botones
+
+## Reglas de Negocio
+- No pueden haber campos vacíos para el registro
+- Correo único y válido
+- Clave de mínimo 6 caracteres con un número
+- Máximo 500 caracteres por traducción
+- La traducción se guarda automáticamente
 
 ## Tecnologías
 - Kotlin 
