@@ -39,3 +39,7 @@ DSY1105 - Desarrollo de Aplicaciones Móviles
 3. Ejecutar en un emulador o dispositivo con Android 8.0 (API 26) o superior
 4. La primera traducción requiere internet para descargar el modelo
 
+
+## Planificación
+Tablero Trello: https://trello.com/b/rmLgjb0e/app-tuco
+
