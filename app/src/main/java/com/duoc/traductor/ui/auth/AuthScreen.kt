@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -45,9 +46,17 @@ fun AuthScreen(onLoggedIn: () -> Unit, vm: AuthViewModel = viewModel()) {
         )
         Spacer(Modifier.height(8.dp))
         Text(
-            "Traductor Turco ↔ Español",
-            style = MaterialTheme.typography.headlineSmall, textAlign = TextAlign.Center
+            "Tuco",
+            style = MaterialTheme.typography.displayMedium,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.primary
         )
+        Text(
+            "Traductor Turco ↔ Español",
+            style = MaterialTheme.typography.titleMedium,
+            textAlign = TextAlign.Center
+        )
+        Spacer(Modifier.height(8.dp))
         Text(
             if (s.isRegister) "Crea tu cuenta" else "Inicia sesión",
             style = MaterialTheme.typography.bodyLarge

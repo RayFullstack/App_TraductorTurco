@@ -88,7 +88,7 @@ fun TranslateScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Traductor") },
+                title = { Text("Tuco") },
                 actions = {
                     IconButton(onClick = onHistory) {
                         Icon(Icons.Default.History, contentDescription = "Historial")
