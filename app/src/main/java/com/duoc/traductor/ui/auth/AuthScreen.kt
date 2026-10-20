@@ -2,6 +2,7 @@ package com.duoc.traductor.ui.auth
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
@@ -14,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -22,6 +24,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.duoc.traductor.native.HapticHelper
+import com.traductortuco.R
 
 @Composable
 fun AuthScreen(onLoggedIn: () -> Unit, vm: AuthViewModel = viewModel()) {
@@ -40,9 +43,10 @@ fun AuthScreen(onLoggedIn: () -> Unit, vm: AuthViewModel = viewModel()) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Icon(
-            Icons.Default.Translate, contentDescription = null,
-            modifier = Modifier.size(64.dp), tint = MaterialTheme.colorScheme.primary
+        Image(
+            painter = painterResource(R.drawable.logo_tuco),
+            contentDescription = "Logo de Tuco",
+            modifier = Modifier.size(96.dp)
         )
         Spacer(Modifier.height(8.dp))
         Text(
@@ -103,6 +107,7 @@ fun AuthScreen(onLoggedIn: () -> Unit, vm: AuthViewModel = viewModel()) {
         }
     }
 }
+
 
 @Composable
 private fun AuthField(
