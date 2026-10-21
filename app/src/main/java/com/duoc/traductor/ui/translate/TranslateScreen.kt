@@ -25,6 +25,10 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.duoc.traductor.native.HapticHelper
 import com.duoc.traductor.native.SpeechHelper
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInVertically
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -147,7 +151,11 @@ fun TranslateScreen(
                 Text(s.error ?: "", color = MaterialTheme.colorScheme.error)
             }
 
-            AnimatedVisibility(s.output.isNotBlank()) {
+            AnimatedVisibility(
+                visible = s.output.isNotBlank(),
+                enter = fadeIn() + slideInVertically(initialOffsetY = { it / 2 }),
+                exit = fadeOut()
+            ) {
                 Card(Modifier.fillMaxWidth()) {
                     Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                         Text(to, style = MaterialTheme.typography.labelMedium)
