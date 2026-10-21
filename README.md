@@ -54,3 +54,13 @@ Frente a la problemática de la comunicación frente al auge del intercambio com
 ## Planificación
 Tablero Trello: https://trello.com/b/rmLgjb0e/app-tuco
 
+
+## Capturas
+
+![Pantalla Principal](Screenshots/img.png)
+![Pantalla Login](screenshots/img_4.png)
+![Pantalla Español](screenshots/img_2.png)
+![Pantalla Turco](screenshots/img_3.png)
+![Pantalla Historial](screenshots/img_1.png)
+
+
