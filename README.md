@@ -1,59 +1,58 @@
-# Traductor Turco ↔ Español:
-# "Tuco"
+# Traductor Turco ↔ Español: "Tuco"
 
-Tuco es una aplicación móvil Android sencilla, que traduce entre idiomas turco y español.
+Tuco es una aplicación móvil Android nativa desarrollada en Kotlin y Jetpack Compose que realiza traducción bidireccional instantánea entre turco y español.
 
 ## Integrante
 Rahyzza Novoa Vasquinzay
 
 ## Asignatura
-DSY1105 - Desarrollo de Aplicaciones Móviles
-
+DSY1105 - Desarrollo de Aplicaciones Móviles (Evaluación Final Transversal)
 
 ## Contexto
-Frente a la problemática de la comunicación frente al auge del intercambio comercial entre Turquía y Chile, se implementa una aplicación que permite escribir o dictar por voz, y guarda un historial de traducciones con favoritos.
+Frente a la problemática de la comunicación en el auge del intercambio comercial, académico y cultural entre Turquía y Chile, se implementa una aplicación móvil accesible que permite escribir o dictar por voz, soporta caracteres especiales de ambos idiomas (`á, é, í, ó, ú, ñ` y `ç, ğ, ı, İ, ö, ş, ü`), y guarda un historial de traducciones con favoritos.
 
 ## Funcionalidades
-- Registro e inicio de sesión con validaciones visuales por campo
-- Traducción turco ↔ español con ML Kit (funciona sin internet tras descargar el modelo)
-- Dictado por voz con el micrófono (permiso en tiempo de ejecución)
-- Retroalimentación háptica con vibración
-- Historial de traducciones con favoritos y eliminación (persistencia local con Room)
-- Animaciones de retroalimentación en formularios y botones
+- Registro e inicio de sesión con validaciones visuales por campo.
+- Traducción bidireccional Español ↔ Turco mediante **API externa (Retrofit + Gson)** con respaldo offline mediante **ML Kit Translate** y control de tiempo de espera (`withTimeout`).
+- Dictado por voz en español (`es-ES`) y turco (`tr-TR`) mediante el micrófono (permiso `RECORD_AUDIO` en tiempo de ejecución).
+- Retroalimentación háptica diferenciada mediante vibración al traducir con éxito o producirse un error.
+- Historial de traducciones con favoritos y eliminación (persistencia local con Room).
+- Animaciones de retroalimentación en formularios, botones y tarjetas de resultado.
 
 ## Reglas de Negocio
-- No pueden haber campos vacíos para el registro
-- Correo único y válido
-- Clave de mínimo 6 caracteres con un número
-- Máximo 500 caracteres por traducción
-- La traducción se guarda automáticamente
+- No pueden haber campos vacíos para el registro.
+- Correo electrónico único y válido.
+- Clave de mínimo 6 caracteres con al menos un número.
+- Máximo 500 caracteres por traducción, conservando tildes, `ñ` y caracteres especiales turcos.
+- La traducción se guarda automáticamente en el historial local.
 
 ## Tecnologías
-- Kotlin 
-- Jetpack Compose 
-- Material 3
-- MVVM 
-- Room 
-- KSP
-- ML Kit Translate 
-- Navigation Compose
+- **Lenguaje y UI:** Kotlin, Jetpack Compose, Material Design 3
+- **Arquitectura:** MVVM (Model-View-ViewModel)
+- **Red y Traducción:** Retrofit 2, Gson, Google ML Kit Translate, Coroutines
+- **Persistencia Local:** Room Database
+- **Navegación:** Navigation Compose
+- **Pruebas Unitarias:** JUnit 4, MockK, `kotlinx-coroutines-test`
 
-## Estructura
-- `data/`: Room (entidades, DAOs) y repositorio
-- `domain/`: validaciones y motor de traducción
-- `native/`: recursos nativos (micrófono y vibración)
-- `ui/`: pantallas, ViewModels y navegación
+## Estructura del Proyecto
+- `data/`: Entidades, DAOs, base de datos local (Room), cliente HTTP (`Retrofit`) y repositorio.
+- `domain/`: Reglas de validación (`AuthValidator`, `TranslationValidator`) y motor de traducción (`TranslatorManager`).
+- `native/`: Recursos nativos (`SpeechHelper` para micrófono/voz y `HapticHelper` para vibración).
+- `ui/`: Pantallas Compose, ViewModels, tema tipográfico/visual (`TucoTheme`) y navegación.
+- `test/`: Pruebas unitarias automatizadas de validaciones y lógica de traducción.
+- `entrega/`: APK firmado listo para instalación (`Tuco-v1.0-release.apk`).
+
+## Pruebas Unitarias y APK Firmado
+- **Ejecutar pruebas unitarias:** `./gradlew testDebugUnitTest`
+- **APK Release firmado:** `entrega/Tuco-v1.0-release.apk` (firmado con keystore `tuco-release.jks`, alias `tuco_key`).
 
 ## Cómo ejecutar
 1. Clonar el repositorio: `git clone https://github.com/RayFullstack/App_TraductorTurco.git`
-2. Abrir la carpeta en Android Studio y sincronizar Gradle
-3. Ejecutar en un emulador o dispositivo con Android 8.0 (API 26) o superior
-4. La primera traducción requiere internet para descargar el modelo
-
+2. Abrir la carpeta en Android Studio y sincronizar Gradle.
+3. Ejecutar en un emulador o dispositivo con Android 8.0 (API 26) o superior, o instalar directamente `entrega/Tuco-v1.0-release.apk`.
 
 ## Planificación
 Tablero Trello: https://trello.com/b/rmLgjb0e/app-tuco
-
 
 ## Capturas
 
@@ -62,5 +61,3 @@ Tablero Trello: https://trello.com/b/rmLgjb0e/app-tuco
 ![Pantalla Español](Screenshots/img_2.png)
 ![Pantalla Turco](Screenshots/img_3.png)
 ![Pantalla Historial](Screenshots/img_1.png)
-
-
